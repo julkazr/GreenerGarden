@@ -1,0 +1,9 @@
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\bin\Debug\netcoreapp3.1\GreenerGarden.Data.deps.json
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\bin\Debug\netcoreapp3.1\GreenerGarden.Data.dll
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\bin\Debug\netcoreapp3.1\GreenerGarden.Data.pdb
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\obj\Debug\netcoreapp3.1\GreenerGarden.Data.csprojAssemblyReference.cache
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\obj\Debug\netcoreapp3.1\GreenerGarden.Data.AssemblyInfoInputs.cache
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\obj\Debug\netcoreapp3.1\GreenerGarden.Data.AssemblyInfo.cs
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\obj\Debug\netcoreapp3.1\GreenerGarden.Data.csproj.CoreCompileInputs.cache
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\obj\Debug\netcoreapp3.1\GreenerGarden.Data.dll
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Data\obj\Debug\netcoreapp3.1\GreenerGarden.Data.pdb

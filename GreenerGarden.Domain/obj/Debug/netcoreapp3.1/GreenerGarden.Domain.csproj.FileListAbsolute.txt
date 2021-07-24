@@ -1,0 +1,14 @@
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Domain.deps.json
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Domain.dll
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Domain.pdb
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Data.dll
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Repositories.dll
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Repositories.pdb
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\bin\Debug\netcoreapp3.1\GreenerGarden.Data.pdb
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.csprojAssemblyReference.cache
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.AssemblyInfoInputs.cache
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.AssemblyInfo.cs
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.csproj.CoreCompileInputs.cache
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.csproj.CopyComplete
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.dll
+G:\Razni projekti\CS50\GreenerGarden\GreenerGarden.Domain\obj\Debug\netcoreapp3.1\GreenerGarden.Domain.pdb

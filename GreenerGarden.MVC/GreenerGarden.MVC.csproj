@@ -13,4 +13,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GreenerGarden.Domain\GreenerGarden.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
