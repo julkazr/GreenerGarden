@@ -9,13 +9,13 @@ namespace GreenerGarden.Data.Entities
     {
         public int CultureId { get; set; }
         public int SeasonId { get; set; }
-        public int YieldId { get; set; }
         [Required]
         public string Name { get; set; }
         [DataType(DataType.Currency)]
         public float Price { get; set; }
 
         public virtual Season Season { get; set; }
-        public virtual Yield Yield { get; set; }
+        public virtual ICollection<Yield> Yields { get; set; }
+        public virtual ICollection<Expence> Expences { get; set; }
     }
 }

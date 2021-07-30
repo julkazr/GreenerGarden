@@ -15,5 +15,6 @@ namespace GreenerGarden.Data.Entities
         public DateTime SeasonEnd { get; set; }
 
         public virtual ICollection<Culture> Cultures { get; set; }
+        public virtual ICollection<Expence> Expences { get; set; }
     }
 }

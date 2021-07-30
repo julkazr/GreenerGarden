@@ -7,7 +7,8 @@ namespace GreenerGarden.Data.Entities
 {
     public class Yield
     {
-        public int YieldId { get; set; }
+        public int Id { get; set; }
+        public int CultureId { get; set; }
         [DataType(DataType.Currency)]
         public float Amount { get; set; }
 

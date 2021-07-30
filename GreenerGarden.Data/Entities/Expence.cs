@@ -8,6 +8,8 @@ namespace GreenerGarden.Data.Entities
     public class Expence
     {
         public int ExpenceId { get; set; }
+        public int SeasonId { get; set; }
+        public int CultureId { get; set; }
         [Required]
         public string ExpenceCategory { get; set; }
         [Required]

@@ -32,6 +32,65 @@ namespace GreenerGarden.MVC.Data
                         .HasOne(x => x.Season)
                         .WithMany(x => x.Cultures)
                         .HasForeignKey(x => x.SeasonId);
+
+            /// <summary>
+            /// Season -> Culture relation
+            /// </summary>
+            /// <returns></returns>
+            modelBuilder.Entity<Season>()
+                        .HasMany(x => x.Cultures)
+                        .WithOne(x => x.Season);
+
+            /// <summary>
+            /// Culture -> Yeald relation
+            /// </summary>
+            /// <returns></returns>
+            modelBuilder.Entity<Culture>()
+                        .HasMany(x => x.Yields)
+                        .WithOne(x => x.Culture);
+
+            ///<summary>
+            ///Yield -> Culture relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<Yield>()
+                        .HasOne(x => x.Culture)
+                        .WithMany(x => x.Yields)
+                        .HasForeignKey(x => x.CultureId);
+
+            ///<summary>
+            ///Expence -> Culture relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<Expence>()
+                        .HasOne(x => x.Culture)
+                        .WithMany(x => x.Expences)
+                        .HasForeignKey(x => x.CultureId);
+
+            ///<summary>
+            ///Culture -> Expence relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<Culture>()
+                        .HasMany(x => x.Expences)
+                        .WithOne(x => x.Culture);
+
+            ///<summary>
+            ///Expence -> ESeason relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<Expence>()
+                        .HasOne(x => x.Season)
+                        .WithMany(x => x.Expences)
+                        .HasForeignKey(x => x.SeasonId);
+
+            ///<summary>
+            ///Season -> Expence relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<Season>()
+                        .HasMany(x => x.Expences)
+                        .WithOne(x => x.Season);
         }
     }
 }
