@@ -2,10 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="container text-center">
-    <button class="btn btn-success"> @Html.ActionLink("Create New Season", "Create", "Season")</button>
+<div class="container">
+    <button class="btn btn-success mt-5"> @Html.ActionLink("Create New Season", "Create", "Season", null, new { @class = "text-warning h4"})</button>
     <hr />
-    <p>Current season </p>
+    <h4>Current season </h4>
     <table class="table table-striped">
         <thead>
             <tr>
