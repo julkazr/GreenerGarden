@@ -1,0 +1,20 @@
+﻿.nav-bckg {
+    background-color: #63903a !important;
+}
+
+.yellow-font {
+    color: #ffcf01 !important;
+}
+
+.nav-link.h4.yellow-font:hover {
+    color: #fff !important;
+}
+
+.body-bckg {
+    background-image: url("../Img/background4.jpeg");
+}
+
+.container-bckg {
+    background-color: aliceblue;
+    opacity: 0.7;
+}
