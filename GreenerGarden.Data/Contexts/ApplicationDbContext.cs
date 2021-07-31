@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GreenerGarden.MVC.Data
+namespace GreenerGarden.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -65,7 +65,8 @@ namespace GreenerGarden.MVC.Data
             modelBuilder.Entity<Expence>()
                         .HasOne(x => x.Culture)
                         .WithMany(x => x.Expences)
-                        .HasForeignKey(x => x.CultureId);
+                        .HasForeignKey(x => x.CultureId)
+                        .OnDelete(DeleteBehavior.NoAction);
 
             ///<summary>
             ///Culture -> Expence relation
@@ -82,7 +83,8 @@ namespace GreenerGarden.MVC.Data
             modelBuilder.Entity<Expence>()
                         .HasOne(x => x.Season)
                         .WithMany(x => x.Expences)
-                        .HasForeignKey(x => x.SeasonId);
+                        .HasForeignKey(x => x.SeasonId)
+                        .OnDelete(DeleteBehavior.NoAction);
 
             ///<summary>
             ///Season -> Expence relation
