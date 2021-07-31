@@ -7,7 +7,7 @@ namespace GreenerGarden.Data.Entities
 {
     public class Season
     {
-        public int SaeasonId { get; set; }
+        public int Id { get; set; }
         [Required]
         [DataType(DataType.Date)]
         public DateTime SeasonStart { get; set; }

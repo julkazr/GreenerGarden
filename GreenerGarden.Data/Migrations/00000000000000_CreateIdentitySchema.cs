@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 
-namespace GreenerGarden.MVC.Data.Migrations
+namespace GreenerGarden.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

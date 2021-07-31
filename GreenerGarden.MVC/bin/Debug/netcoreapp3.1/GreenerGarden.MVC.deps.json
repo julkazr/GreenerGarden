@@ -1466,7 +1466,8 @@
       "GreenerGarden.Data/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.17",
-          "Microsoft.AspNetCore.Identity.UI": "3.1.17"
+          "Microsoft.AspNetCore.Identity.UI": "3.1.17",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.17"
         },
         "runtime": {
           "GreenerGarden.Data.dll": {}
