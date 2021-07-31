@@ -1,5 +1,5 @@
 ﻿using GreenerGarden.Data.Entities;
-using GreenerGarden.MVC.Data;
+using GreenerGarden.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
