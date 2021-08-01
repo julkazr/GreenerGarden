@@ -3,7 +3,7 @@
 }
 
 <div class="container">
-    <button class="btn btn-success mt-5"> @Html.ActionLink("Create New Season", "Create", "Season", null, new { @class = "text-warning h4"})</button>
+    <button class="btn green-bckg mt-5"> @Html.ActionLink("Create New Season", "Create", "Season", null, new { @class = "text-warning h4" })</button>
     <hr />
     <h4>Current season </h4>
     <table class="table table-striped">
@@ -22,6 +22,26 @@
                 <td>20</td>
                 <td>600.00</td>
             </tr>
+            <tr>
+                <td>Onion</td>
+                <td>236.00</td>
+                <td>17</td>
+                <td>850.00</td>
+            </tr>
         </tbody>
     </table>
+    <div class="row">
+        <p class="col-6 bigger-font">Total expences in current season:</p>
+        <p class="col-6 bigger-font">266.00</p>
+    </div>
+    <div class="row">
+        <p class="col-6 bigger-font">Total profit in current season: </p>
+        <p class="col-6 bigger-font">1450.00</p>
+    </div>
+    <div class="row">
+        <p class="col-6 bigger-font">Balance: </p>
+        <p class="col-6 bigger-font">1184.00</p>
+    </div>
+    <hr />
+    <button class="btn green-bckg mt-5"> @Html.ActionLink("Delete Season", "Delete", "Season", null, new { @class = "text-warning h4" })</button>
 </div>
