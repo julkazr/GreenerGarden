@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace GreenerGarden.Repositories
 {
-    public interface IYieldRepository : IRepository<CropYield>
+    public interface ICropYieldRepository : IRepository<CropYield>
     {
 
     }
-    public class CropYieldRepository
+    public class CropYieldRepository :ICropYieldRepository
     {
         private readonly ApplicationDbContext _appContext;
         public CropYieldRepository(ApplicationDbContext appContext)

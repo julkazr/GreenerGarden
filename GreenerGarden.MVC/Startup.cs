@@ -1,4 +1,7 @@
 using GreenerGarden.Data;
+using GreenerGarden.Domain.Interfaces;
+using GreenerGarden.Domain.Services;
+using GreenerGarden.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +41,9 @@ namespace GreenerGarden.MVC
             {
                 options.Password.RequiredLength = 8;
             });
+
+            // Business logic
+            services.AddTransient<IHomeService, HomeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
