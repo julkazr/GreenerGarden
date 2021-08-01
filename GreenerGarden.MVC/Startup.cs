@@ -42,6 +42,14 @@ namespace GreenerGarden.MVC
                 options.Password.RequiredLength = 8;
             });
 
+
+            // Repositories
+            services.AddTransient<ICropYieldRepository, CropYieldRepository>();
+            services.AddTransient<ICultureRepository, CultureRepository>();
+            services.AddTransient<IExpenceRepository, ExpenceRepository>();
+            services.AddTransient<INoteRepository, NoteRepository>();
+            services.AddTransient<ISeasonRepository, SeasonRepository>();
+
             // Business logic
             services.AddTransient<IHomeService, HomeService>();
         }
