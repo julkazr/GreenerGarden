@@ -19,15 +19,15 @@ namespace GreenerGarden.Repositories
         {
             _appContext = appContext;
         }
-        public Culture GetById(int id)
+        public async Task<Culture> GetById(int id)
         {
-            var culture = _appContext.Cultures.Find(id);
+            var culture = await _appContext.Cultures.FindAsync(id);
             return culture;
         }
 
-        public Culture Delete(int id)
+        public async Task<Culture> Delete(int id)
         {
-            Culture existing = _appContext.Cultures.Find(id);
+            Culture existing = await _appContext.Cultures.FindAsync(id);
             var result = _appContext.Cultures.Remove(existing).Entity;
             return result;
         }
@@ -38,21 +38,23 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public Culture Insert(Culture obj)
+        public async Task<Culture> Insert(Culture obj)
         {
-            var data = _appContext.Cultures.Add(obj).Entity;
-            return data;
+            var data = await _appContext.Cultures.AddAsync(obj);
+            return data.Entity;
         }
 
-        public void Save()
+        public async void Save()
         {
-            _appContext.SaveChanges();
+            await _appContext.SaveChangesAsync();
         }
 
-        public Culture Update(Culture obj)
+        public async Task<Culture> Update(Culture obj, int id)
         {
-            var updatedEntry = _appContext.Cultures.Attach(obj).Entity;
-            _appContext.Entry(obj).State = EntityState.Modified;
+            //var updatedentry = await _appcontext.cultures.attach(obj);
+            //_appcontext.entry(obj).state = entitystate.modified;
+            Culture updatedEntry = await _appContext.Set<Culture>().FindAsync(id);
+            _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
         }
     }

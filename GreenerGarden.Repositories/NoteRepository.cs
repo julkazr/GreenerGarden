@@ -19,15 +19,15 @@ namespace GreenerGarden.Repositories
         {
             _appContext = appContext;
         }
-        public Note GetById(int id)
+        public async Task<Note> GetById(int id)
         {
-            var note = _appContext.Notes.Find(id);
+            var note = await _appContext.Notes.FindAsync(id);
             return note;
         }
 
-        public Note Delete(int id)
+        public async Task<Note> Delete(int id)
         {
-            Note existing = _appContext.Notes.Find(id);
+            Note existing = await _appContext.Notes.FindAsync(id);
             var result = _appContext.Notes.Remove(existing).Entity;
             return result;
         }
@@ -38,21 +38,23 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public Note Insert(Note obj)
+        public async Task<Note> Insert(Note obj)
         {
-            var data = _appContext.Notes.Add(obj).Entity;
-            return data;
+            var data = await _appContext.Notes.AddAsync(obj);
+            return data.Entity;
         }
 
-        public void Save()
+        public async void Save()
         {
-            _appContext.SaveChanges();
+            await _appContext.SaveChangesAsync();
         }
 
-        public Note Update(Note obj)
+        public async Task<Note> Update(Note obj, int id)
         {
-            var updatedEntry = _appContext.Notes.Attach(obj).Entity;
-            _appContext.Entry(obj).State = EntityState.Modified;
+            //var updatedEntry = _appContext.Notes.Attach(obj).Entity;
+            //_appContext.Entry(obj).State = EntityState.Modified;
+            Note updatedEntry = await _appContext.Set<Note>().FindAsync(id);
+            _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
         }
     }

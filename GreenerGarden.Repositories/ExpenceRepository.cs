@@ -20,15 +20,15 @@ namespace GreenerGarden.Repositories
         {
             _appContext = appContext;
         }
-        public Expence GetById(int id)
+        public async Task<Expence> GetById(int id)
         {
-            var expence = _appContext.Expences.Find(id);
+            var expence = await _appContext.Expences.FindAsync(id);
             return expence;
         }
 
-        public Expence Delete(int id)
+        public async Task<Expence> Delete(int id)
         {
-            Expence existing = _appContext.Expences.Find(id);
+            Expence existing = await _appContext.Expences.FindAsync(id);
             var result = _appContext.Expences.Remove(existing).Entity;
             return result;
         }
@@ -39,21 +39,23 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public Expence Insert(Expence obj)
+        public async Task<Expence> Insert(Expence obj)
         {
-            var data = _appContext.Expences.Add(obj).Entity;
-            return data;
+            var data = await _appContext.Expences.AddAsync(obj);
+            return data.Entity;
         }
 
-        public void Save()
+        public async void Save()
         {
-            _appContext.SaveChanges();
+            await _appContext.SaveChangesAsync();
         }
 
-        public Expence Update(Expence obj)
+        public async Task<Expence> Update(Expence obj, int id)
         {
-            var updatedEntry = _appContext.Expences.Attach(obj).Entity;
-            _appContext.Entry(obj).State = EntityState.Modified;
+            //var updatedEntry = _appContext.Expences.Attach(obj).Entity;
+            //_appContext.Entry(obj).State = EntityState.Modified;
+            Expence updatedEntry = await _appContext.Set<Expence>().FindAsync(id);
+            _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
         }
     }

@@ -11,7 +11,7 @@ namespace GreenerGarden.Data
     {
         public DbSet<Season> Seasons { get; set; }
         public DbSet<Culture> Cultures { get; set; }
-        public DbSet<Yield> Yields { get; set; }
+        public DbSet<CropYield> CropYields { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<Expence> Expences { get; set; }
 
@@ -46,16 +46,16 @@ namespace GreenerGarden.Data
             /// </summary>
             /// <returns></returns>
             modelBuilder.Entity<Culture>()
-                        .HasMany(x => x.Yields)
+                        .HasMany(x => x.CropYields)
                         .WithOne(x => x.Culture);
 
             ///<summary>
             ///Yield -> Culture relation
             ///</summary>
             ///<returns></returns>
-            modelBuilder.Entity<Yield>()
+            modelBuilder.Entity<CropYield>()
                         .HasOne(x => x.Culture)
-                        .WithMany(x => x.Yields)
+                        .WithMany(x => x.CropYields)
                         .HasForeignKey(x => x.CultureId);
 
             ///<summary>

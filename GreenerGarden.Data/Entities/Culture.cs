@@ -15,7 +15,7 @@ namespace GreenerGarden.Data.Entities
         public float Price { get; set; }
 
         public virtual Season Season { get; set; }
-        public virtual ICollection<Yield> Yields { get; set; }
+        public virtual ICollection<CropYield> CropYields { get; set; }
         public virtual ICollection<Expence> Expences { get; set; }
     }
 }

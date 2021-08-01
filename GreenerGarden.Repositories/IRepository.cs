@@ -7,11 +7,11 @@ namespace GreenerGarden.Repositories
 {
     public interface IRepository<T> where T : class
     {
-        T Delete(int id);
+        Task<T> Delete(int id);
         Task<IEnumerable<T>> GetAllAsync();
-        T GetById(int id);
-        T Insert(T obj);
-        T Update(T obj);
+        Task<T> GetById(int id);
+        Task<T> Insert(T obj);
+        Task<T> Update(T obj, int id);
         void Save();
     }
 }

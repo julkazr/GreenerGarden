@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GreenerGarden.Data.Entities
 {
-    public class Yield
+    public class CropYield
     {
         public int Id { get; set; }
         public int CultureId { get; set; }
