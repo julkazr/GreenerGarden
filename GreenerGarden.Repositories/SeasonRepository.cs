@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace GreenerGarden.Repositories
 {
     public interface ISeasonRepository: IRepository<Season>
     {
-
+        Task<Season> GetCurrentSeason();
     }
 
     public class SeasonRepository : ISeasonRepository
@@ -39,15 +40,15 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public async Task<Season> Insert(Season obj)
+        public Season Insert(Season obj)
         {
-            var data = await _appContext.Seasons.AddAsync(obj);
-            return data.Entity;
+            var data = _appContext.Seasons.Add(obj).Entity;
+            return data;
         }
 
-        public async void Save()
+        public void Save()
         {
-            await _appContext.SaveChangesAsync();
+            _appContext.SaveChanges();
         }
 
         public async Task<Season> Update(Season obj, int id)
@@ -57,6 +58,13 @@ namespace GreenerGarden.Repositories
             Season updatedEntry = await _appContext.Set<Season>().FindAsync(id);
             _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
+        }
+
+        public async Task<Season> GetCurrentSeason()
+        {
+            int maxId = _appContext.Seasons.Max(x => x.Id);
+            Season currentSeason = _appContext.Seasons.Find(maxId);
+            return currentSeason;
         }
     }
 }

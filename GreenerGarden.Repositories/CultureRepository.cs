@@ -38,15 +38,15 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public async Task<Culture> Insert(Culture obj)
+        public Culture Insert(Culture obj)
         {
-            var data = await _appContext.Cultures.AddAsync(obj);
-            return data.Entity;
+            var data = _appContext.Cultures.Add(obj).Entity;
+            return data;
         }
 
-        public async void Save()
+        public void Save()
         {
-            await _appContext.SaveChangesAsync();
+            _appContext.SaveChanges();
         }
 
         public async Task<Culture> Update(Culture obj, int id)

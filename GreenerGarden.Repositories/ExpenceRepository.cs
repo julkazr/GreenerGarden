@@ -39,15 +39,15 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public async Task<Expence> Insert(Expence obj)
+        public Expence Insert(Expence obj)
         {
-            var data = await _appContext.Expences.AddAsync(obj);
-            return data.Entity;
+            var data = _appContext.Expences.Add(obj).Entity;
+            return data;
         }
 
-        public async void Save()
+        public void Save()
         {
-            await _appContext.SaveChangesAsync();
+            _appContext.SaveChanges();
         }
 
         public async Task<Expence> Update(Expence obj, int id)

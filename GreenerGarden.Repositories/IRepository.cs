@@ -10,7 +10,7 @@ namespace GreenerGarden.Repositories
         Task<T> Delete(int id);
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetById(int id);
-        Task<T> Insert(T obj);
+        T Insert(T obj);
         Task<T> Update(T obj, int id);
         void Save();
     }

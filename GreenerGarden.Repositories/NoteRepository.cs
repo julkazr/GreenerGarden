@@ -38,15 +38,15 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public async Task<Note> Insert(Note obj)
+        public Note Insert(Note obj)
         {
-            var data = await _appContext.Notes.AddAsync(obj);
-            return data.Entity;
+            var data = _appContext.Notes.Add(obj).Entity;
+            return data;
         }
 
-        public async void Save()
+        public void Save()
         {
-            await _appContext.SaveChangesAsync();
+            _appContext.SaveChanges();
         }
 
         public async Task<Note> Update(Note obj, int id)

@@ -38,10 +38,10 @@ namespace GreenerGarden.Repositories
             return data;
         }
 
-        public async Task<CropYield> Insert(CropYield obj)
+        public CropYield Insert(CropYield obj)
         {
-            var data = await _appContext.CropYields.AddAsync(obj);
-            return data.Entity;
+            var data = _appContext.CropYields.Add(obj).Entity;
+            return data;
         }
 
         public void Save()
