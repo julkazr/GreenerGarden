@@ -3,6 +3,7 @@ using GreenerGarden.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace GreenerGarden.Repositories
 {
     public interface ICropYieldRepository : IRepository<CropYield>
     {
-
+        IEnumerable<CropYield> GetByCultureId(int id);
     }
     public class CropYieldRepository :ICropYieldRepository
     {
@@ -56,6 +57,12 @@ namespace GreenerGarden.Repositories
             CropYield updatedEntry = await _appContext.Set<CropYield>().FindAsync(id);
             _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
+        }
+
+        public IEnumerable<CropYield> GetByCultureId(int id)
+        {
+            var data = _appContext.CropYields.Where(x => x.CultureId == id);
+            return data;
         }
     }
 }

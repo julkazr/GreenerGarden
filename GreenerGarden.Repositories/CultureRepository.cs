@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace GreenerGarden.Repositories
 {
     public interface ICultureRepository : IRepository<Culture>
     {
-
+        IEnumerable<Culture> GetCulturesBySeasonId(int id);
     }
     public class CultureRepository : ICultureRepository
     {
@@ -56,6 +57,12 @@ namespace GreenerGarden.Repositories
             Culture updatedEntry = await _appContext.Set<Culture>().FindAsync(id);
             _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
+        }
+
+        public IEnumerable<Culture> GetCulturesBySeasonId(int id)
+        {
+            var data = _appContext.Cultures.Where(x => x.SeasonId == id);
+            return data;
         }
     }
 }

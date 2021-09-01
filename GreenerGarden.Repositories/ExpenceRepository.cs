@@ -3,6 +3,7 @@ using GreenerGarden.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace GreenerGarden.Repositories
 {
     public interface IExpenceRepository : IRepository<Expence>
     {
-
+        IEnumerable<Expence> GetByCultureId(int id);
     }
 
     public class ExpenceRepository : IExpenceRepository
@@ -57,6 +58,12 @@ namespace GreenerGarden.Repositories
             Expence updatedEntry = await _appContext.Set<Expence>().FindAsync(id);
             _appContext.Entry(updatedEntry).CurrentValues.SetValues(obj);
             return updatedEntry;
+        }
+
+        public IEnumerable<Expence> GetByCultureId(int id)
+        {
+            var data = _appContext.Expences.Where(x => x.CultureId == id);
+            return data;
         }
     }
 }
