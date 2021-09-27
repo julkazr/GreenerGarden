@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model  HomeViewModel
+
+ @{
+    ViewData["Title"]="Home Page" ;
 }
 
 <div class="container">
@@ -16,27 +18,28 @@
             </tr>
         </thead>
         <tbody>
+            @*@foreach (var item in Model.CultureNames)
+            {*@
             <tr>
+                @*<td>@Html.DisplayFor(modelItem => item.)</td>
+        <td>@Html.DisplayFor(modelItem => item.Expences)</td>
+        <td>@Html.DisplayFor(modelItem => item.CropYield)</td>
+        <td>@Html.DisplayFor(modelItem => item.Profit)</td>*@
                 <td>Letuce</td>
-                <td>30.00</td>
+                <td>60.00</td>
                 <td>20</td>
-                <td>600.00</td>
+                <td>540.00</td>
             </tr>
-            <tr>
-                <td>Onion</td>
-                <td>236.00</td>
-                <td>17</td>
-                <td>850.00</td>
-            </tr>
+            @*}*@
         </tbody>
     </table>
     <div class="row">
         <p class="col-6 bigger-font">Total expences in current season:</p>
-        <p class="col-6 bigger-font">266.00</p>
+        <p class="col-6 bigger-font">@Html.DisplayFor(model => model.TotalExpence)</p>
     </div>
     <div class="row">
         <p class="col-6 bigger-font">Total profit in current season: </p>
-        <p class="col-6 bigger-font">1450.00</p>
+        <p class="col-6 bigger-font">@Html.DisplayFor(model => model.TotalProfit)</p>
     </div>
     <hr />
     <button class="btn green-bckg mt-5"> @Html.ActionLink("Delete Season", "Delete", "Season", null, new { @class = "text-warning h4" })</button>

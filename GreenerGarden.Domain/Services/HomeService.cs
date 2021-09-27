@@ -31,8 +31,7 @@ namespace GreenerGarden.Domain.Services
         {
             Season seasonToCreate = new Season()
             {
-                SeasonStart = newSeason.SeasonStart,
-                SeasonEnd = newSeason.SeasonEnd
+                Year = newSeason.Year
             };
 
             var data = _seasonRepository.Insert(seasonToCreate);
@@ -46,8 +45,7 @@ namespace GreenerGarden.Domain.Services
             SeasonDomainModel domainModel = new SeasonDomainModel()
             {
                 Id = data.Id,
-                SeasonStart = data.SeasonStart,
-                SeasonEnd = data.SeasonEnd
+                Year = data.Year
             };
 
             return domainModel;
@@ -68,19 +66,18 @@ namespace GreenerGarden.Domain.Services
             SeasonDomainModel domainModel = new SeasonDomainModel()
             {
                 Id = seasonToDelete.Id,
-                SeasonStart = seasonToDelete.SeasonStart,
-                SeasonEnd = seasonToDelete.SeasonEnd
+                Year = seasonToDelete.Year
             };
 
             return domainModel;
         }
 
-        public async Task<CurrentSeasonDomainModel> GetCurrentSeason()
+        public async Task<CurrentSeasonDomainModel> GetCurrentSeason(int year)
         {
-            Season season = await _seasonRepository.GetCurrentSeason();
+            Season season = await _seasonRepository.GetCurrentSeason(year);
             CurrentSeasonDomainModel currentSeason = new CurrentSeasonDomainModel();
 
-            var cultures = _cultureRepository.GetCulturesBySeasonId(season.Id);
+            var cultures =season.Cultures;
             var cultureNames = new List<string>();
             var cropYieldsPerSeason = new List<float>();
             var culturesTotalExpences = new List<float>();
@@ -119,10 +116,10 @@ namespace GreenerGarden.Domain.Services
             var profitPerSeason = culturesProfits.Sum();
 
             currentSeason.SeasonId = season.Id;
-            currentSeason.CultureNames = cultureNames;
-            currentSeason.CropYields = cropYieldsPerSeason;
-            currentSeason.ExpencesAmounts = culturesTotalExpences;
-            currentSeason.CulturesProfits = culturesProfits;
+            //currentSeason.Cultures = cultures; TODO translate data model to domain model
+            currentSeason.CultureCropYields = cropYieldsPerSeason;
+            currentSeason.CultureExpencesAmounts = culturesTotalExpences;
+            currentSeason.CultureProfits = culturesProfits;
             currentSeason.SeasonExpence = expencesPerSeason;
             currentSeason.SeasonProfit = profitPerSeason;
 

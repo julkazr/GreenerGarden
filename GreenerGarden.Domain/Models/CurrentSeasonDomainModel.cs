@@ -9,9 +9,9 @@ namespace GreenerGarden.Domain.Models
         public int SeasonId { get; set; }
         public float SeasonProfit { get; set; }
         public float SeasonExpence { get; set; }
-        public List<string> CultureNames { get; set; }
-        public List<float> CropYields { get; set; }
-        public List<float> ExpencesAmounts { get; set; }
-        public List<float> CulturesProfits { get; set; }
+        public ICollection<CultureDomainModel> Cultures { get; set; }
+        public List<float> CultureCropYields { get; set; }
+        public List<float> CultureExpencesAmounts { get; set; }
+        public List<float> CultureProfits { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace GreenerGarden.Repositories
 {
     public interface ISeasonRepository: IRepository<Season>
     {
-        Task<Season> GetCurrentSeason();
+        Task<Season> GetCurrentSeason(int year);
     }
 
     public class SeasonRepository : ISeasonRepository
@@ -60,10 +60,13 @@ namespace GreenerGarden.Repositories
             return updatedEntry;
         }
 
-        public async Task<Season> GetCurrentSeason()
+        public async Task<Season> GetCurrentSeason(int year)
         {
-            int maxId = _appContext.Seasons.Max(x => x.Id);
-            Season currentSeason = _appContext.Seasons.Find(maxId);
+            Season currentSeason = (Season)_appContext.Seasons
+                                              .Where(s => s.Year == year)
+                                              .Include(x => x.Cultures)
+                                              .Include(x => x.Expences)
+                                              .Include(x => x.CropYields);
             return currentSeason;
         }
     }

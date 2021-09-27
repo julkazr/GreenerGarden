@@ -93,6 +93,22 @@ namespace GreenerGarden.Data
             modelBuilder.Entity<Season>()
                         .HasMany(x => x.Expences)
                         .WithOne(x => x.Season);
+
+            ///<summary>
+            ///Season -> CroopYields relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<Season>()
+                        .HasMany(x => x.CropYields)
+                        .WithOne(x => x.Season);
+
+            ///<summary>
+            ///CropYields -> Season relation
+            ///</summary>
+            ///<returns></returns>
+            modelBuilder.Entity<CropYield>()
+                        .HasOne(x => x.Season)
+                        .WithMany(x => x.CropYields);
         }
     }
 }

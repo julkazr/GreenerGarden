@@ -13,7 +13,7 @@ namespace GreenerGarden.Domain.Interfaces
         ///</summary>
         ///<param name="date"></param>
         ///<returns></returns>
-        Task<CurrentSeasonDomainModel> GetCurrentSeason();
+        Task<CurrentSeasonDomainModel> GetCurrentSeason(int year);
 
         ///<summary>
         ///Create new season and adds it to the DB

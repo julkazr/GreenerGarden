@@ -1,4 +1,6 @@
-﻿using GreenerGarden.MVC.Models;
+﻿using GreenerGarden.Domain.Interfaces;
+using GreenerGarden.MVC.Models;
+using GreenerGarden.MVC.Translators;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,15 +14,21 @@ namespace GreenerGarden.MVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IHomeService _homeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHomeService homeService)
         {
             _logger = logger;
+            _homeService = homeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            HomeViewModel viewModel = new HomeViewModel();
+            var homeTranslator = new HomeControllerTranslator();
+            // viewModel = await _homeService.GetCurrentSeason((int)DateTime.Now.Year).ToList();
+
+            return View(viewModel);
         }
 
         public IActionResult Privacy()

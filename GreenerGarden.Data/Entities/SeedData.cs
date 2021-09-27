@@ -23,8 +23,7 @@ namespace GreenerGarden.Data.Entities
                     new Season
                     {
                         Id = 1,
-                        SeasonStart = DateTime.Parse("01-11-2020"),
-                        SeasonEnd = DateTime.Parse("31-10-2021")
+                        Year = 2020
                     }
                     );
                 context.SaveChanges();
